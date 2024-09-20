@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import { ThemeProvider } from 'styled-components';
 import Cadastro from './pages/Cadastro/Cadastro';
 import { colors } from '@mui/material';
+import FormPropsTextFields from './components/Formulario/formulario';
 
 const theme = createTheme({
   palette: {
@@ -22,6 +23,7 @@ function App() {
       <div className="App">
         <Header titulo="MIAUDOT"></Header>
         <Cadastro />
+        <FormPropsTextFields />
       </div>
     </ThemeProvider>
   );
