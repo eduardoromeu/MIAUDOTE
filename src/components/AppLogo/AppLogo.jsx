@@ -1,7 +1,5 @@
 import { Button } from "@mui/material";
-import Typography from '@mui/material/Typography';
 import dogHouse from '../../images/dog-house.png';
-
 
 export default function AppLogo(){
 
