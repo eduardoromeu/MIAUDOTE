@@ -23,7 +23,6 @@ function App() {
       <div className="App">
         <Header titulo="MIAUDOT"></Header>
         <Cadastro />
-        <FormPropsTextFields />
       </div>
     </ThemeProvider>
   );
