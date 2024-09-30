@@ -1,0 +1,64 @@
+Aqui estão as ideias organizadas para o desenvolvimento do site de adoção de animais em React:
+Estrutura Geral
+
+    Menu de Navegação - feature
+        Lateral ou Superior: Escolha de acordo com o espaço e experiência do usuário (UX).
+        Guia de Cadastro: Exibir um link de cadastro no menu ou uma notificação inicial (caso o usuário seja guest).
+
+    Tela Inicial - ess
+        Feed de Adoções: Um feed de rolagem infinita mostrando animais disponíveis para adoção.
+        Pop-up de Cadastro: Um pequeno pop-up na parte superior para incentivar o cadastro. Se o usuário continuar rolando a página, o pop-up desaparece, melhorando a experiência do usuário.
+
+    Tela de Perfil -ess
+        Favoritos: Lista de pets que o usuário marcou com um "coração" ou adicionou aos favoritos.
+        Opção de Editar Perfil: Informações do usuário, incluindo histórico de adoções e dados pessoais.
+
+    Tela de Pesquisa de Pets -ess
+        Geolocalização: Permitir que os usuários busquem animais para adoção por região, integrando o sistema de geolocalização.
+        Filtros de Pesquisa: Adicionar filtros por raça, idade, tamanho, etc.
+
+    Tela de Cadastro de Pets -ess
+        Simples e Funcional: Focado em facilitar o cadastro de novos pets, com informações como nome, foto, características, localização e status de saúde.
+
+    Tela de Adoções Concluídas -ess
+        Estilo Instagram: Um feed de adoções bem-sucedidas, onde os usuários podem postar fotos atualizadas dos pets adotados.
+        Localizações: As adoções podem ser agrupadas por região, criando uma comunidade local interativa.
+
+
+
+
+Aqui estão as ideias organizadas para o desenvolvimento do site de adoção de animais em React:
+Estrutura Geral
+
+    Menu de Navegação
+        Lateral ou Superior: Escolha de acordo com o espaço e experiência do usuário (UX).
+        Guia de Cadastro: Exibir um link de cadastro no menu ou uma notificação inicial (caso o usuário seja guest).
+
+    Tela Inicial
+        Feed de Adoções: Um feed de rolagem infinita mostrando animais disponíveis para adoção.
+        Pop-up de Cadastro: Um pequeno pop-up na parte superior para incentivar o cadastro. Se o usuário continuar rolando a página, o pop-up desaparece, melhorando a experiência do usuário.
+
+    Tela de Perfil
+        Favoritos: Lista de pets que o usuário marcou com um "coração" ou adicionou aos favoritos.
+        Opção de Editar Perfil: Informações do usuário, incluindo histórico de adoções e dados pessoais.
+
+    Tela de Pesquisa de Pets
+        Geolocalização: Permitir que os usuários busquem animais para adoção por região, integrando o sistema de geolocalização.
+        Filtros de Pesquisa: Adicionar filtros por raça, idade, tamanho, etc.
+
+    Tela de Cadastro de Pets
+        Simples e Funcional: Focado em facilitar o cadastro de novos pets, com informações como nome, foto, características, localização e status de saúde.
+
+    Tela de Adoções Concluídas
+        Estilo Instagram: Um feed de adoções bem-sucedidas, onde os usuários podem postar fotos atualizadas dos pets adotados.
+        Localizações: As adoções podem ser agrupadas por região, criando uma comunidade local interativa.
+
+Funcionalidades e Tecnologias
+
+    Autenticação: Usuários podem se cadastrar e fazer login.
+    Geolocalização: API para busca de pets por proximidade.
+    Rolagem Infinita: Para o feed de adoções na tela inicial.
+    UX Dinâmica: Pop-up de cadastro desaparecendo ao rolar a tela, além de feedback visual quando pets são favoritados.
+    Integração de API: Para buscar dados de localização e gerenciar perfis de usuários e animais.
+
+Esse esquema organizado, desenvolvimento com React.
