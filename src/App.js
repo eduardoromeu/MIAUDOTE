@@ -13,6 +13,9 @@ import RegisterPet from './pages/RegisterPet';
 import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
 
+import './styles.css'; // Importa o CSS global
+
+
 function App() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 

@@ -1,0 +1,8 @@
+/* src/styles.css */
+body {
+    text-align: center; /* Centraliza todo o texto na página */
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    font-size: 14px; /* Define um tamanho de texto menor para cabeçalhos e parágrafos */
+  }

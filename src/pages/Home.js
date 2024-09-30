@@ -1,8 +1,12 @@
 import React from 'react';
+
 import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
 //Container: Centraliza o conteúdo.
 //Grid: Organiza os cards dos pets de forma responsiva.
 //Card: Cada pet para adoção é representado por um card.
+
+
+
 function Home() {
   // Exemplo de dados
   const pets = [
