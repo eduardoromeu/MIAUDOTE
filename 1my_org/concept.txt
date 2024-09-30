@@ -5,6 +5,9 @@ Estrutura Geral
         Lateral ou Superior: Escolha de acordo com o espaço e experiência do usuário (UX).
         Guia de Cadastro: Exibir um link de cadastro no menu ou uma notificação inicial (caso o usuário seja guest).
 
+
+        #start up
+        
     Tela Inicial - ess
         Feed de Adoções: Um feed de rolagem infinita mostrando animais disponíveis para adoção.
         Pop-up de Cadastro: Um pequeno pop-up na parte superior para incentivar o cadastro. Se o usuário continuar rolando a página, o pop-up desaparece, melhorando a experiência do usuário.
