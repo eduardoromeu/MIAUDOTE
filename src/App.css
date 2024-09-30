@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+:root {
+  --blue-light: #9FE7F5;
+  --blue-neutral: #489BBD;
+  --blue-dark: #063F5C;
+  --accent-primary: #F7AD19;
+  --accent-secondary: #F27F0C;
+}
+
+.App-logo {
+  height: 40px;
+}
+
+.App-logo img {
+  height: 100%;
+}
+
+.App-header {
+  background-color: var(--accent-secondary);
+  min-height: 64px;
+  color: white;
+}
