@@ -12,7 +12,7 @@ export default function LoginForm(){
           </Typography>
           <IconInput label="Usuário" placeholder="Email ou telefone" />
           <Box sx={{display:'flex', flexDirection:'column', alignItems:"flex-end"}}>
-            <IconInput label="Senha" placeholder="Insira sua senha" icon={<LockIcon />} />
+            <IconInput label="Senha" placeholder="Insira sua senha" type="password" icon={<LockIcon />} />
             <Link href="#" underline="hover" variant="subtitle2">Esqueci minha senha</Link>
           </Box>
           <Button variant="contained">Continuar</Button>
