@@ -29,9 +29,6 @@ export default function Header(props) {
           <ListItem button component="a" href="/">
             <ListItemText primary="Início" />
           </ListItem>
-          <ListItem button component="a" href="/cadastro-usuario">
-            <ListItemText primary="Cadastrar Usuário" />
-          </ListItem>
           <ListItem button component="a" href="/profile">
             <ListItemText primary="Perfil" />
           </ListItem>

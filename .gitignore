@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/miaudote_mod/v17/DocumentLayout.json
+.vs/miaudote_mod/v17/.wsuo
+.vs/miaudote_mod/FileContentIndex/0038d028-ecce-485f-921a-654dedce0396.vsidx
+.vs/miaudote_mod/CopilotIndices/0.2.1653.9816/SemanticSymbols.db-wal
+.vs/miaudote_mod/CopilotIndices/0.2.1653.9816/SemanticSymbols.db-shm
+.vs/miaudote_mod/CopilotIndices/0.2.1653.9816/SemanticSymbols.db
+.vs/miaudote_mod/CopilotIndices/0.2.1653.9816/CodeChunks.db

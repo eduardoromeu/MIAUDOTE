@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import LoginForm from '../LoginForm/LoginForm';
 
 const style = {
   position: 'absolute',
@@ -26,14 +27,7 @@ export default function BasicModal({open, onClose}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Deseja fazer se cadastrar ou fazer login?
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Texto de exemplo
-          </Typography>
-          <Button size="small">Cadastrar</Button>
-          <Button size="small">Fazer Login</Button>
+          <LoginForm />
         </Box>
       </Modal>
     </div>
