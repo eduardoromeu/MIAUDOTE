@@ -16,6 +16,8 @@ import Cadastro from './pages/Cadastro/Cadastro';
 import LoginModal from './components/LoginModal/LoginModal'
 
 import './styles.css'; // Importa o CSS global
+import './App.css';
+import Header from './components/Header/Header';
 
 
 function App() {
@@ -29,40 +31,7 @@ function App() {
   return (
     <Router>
       <CssBaseline />
-      <AppBar position="fixed">
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Miaudote
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      
-      {/* Menu Lateral */}
-      <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
-        <List>
-          <ListItem button component="a" href="/">
-            <ListItemText primary="Início" />
-          </ListItem>
-          <ListItem button component="a" href="/cadastro-usuario">
-            <ListItemText primary="Cadastrar Usuário" />
-          </ListItem>
-          <ListItem button component="a" href="/profile">
-            <ListItemText primary="Perfil" />
-          </ListItem>
-          <ListItem button component="a" href="/register-pet">
-            <ListItemText primary="Cadastrar Pet" />
-          </ListItem>
-          <ListItem button component="a" href="/search-pets">
-            <ListItemText primary="Buscar Pets" />
-          </ListItem>
-          <ListItem button component="a" href="/success-stories">
-            <ListItemText primary="Adoções Concluídas" />
-          </ListItem>
-        </List>
-      </Drawer>
+      <Header />
 
       {/* Rotas */}
       <Box component="main" sx={{ p: 3, mt: 8 }}>

@@ -17,11 +17,6 @@ const style = {
 };
 
 export default function BasicModal({open, onClose}) {
-  const handleClose = () => {
-    console.log("Fechando modal");
-    open = false;
-  };
-
   return (
     <div>
       <Modal

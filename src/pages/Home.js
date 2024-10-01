@@ -16,7 +16,7 @@ function Home() {
   ];
 
   return (
-    <Container>
+    <Container sx={{minHeight:"120vh"}}>
       <Typography variant="h4" component="h1" gutterBottom>
         Pets para Adoção
       </Typography>
