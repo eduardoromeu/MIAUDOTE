@@ -26,7 +26,23 @@ function RegisterPet() {
           onChange={(e) => setPetName(e.target.value)}
         />
         <TextField
-          label="Descrição"
+          label="Idade"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+                <TextField
+          label="Raça"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />        
+                <TextField
+          label="Diga mais sobre o pet"
           variant="outlined"
           fullWidth
           margin="normal"
