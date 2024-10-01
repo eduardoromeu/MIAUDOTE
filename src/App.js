@@ -5,15 +5,13 @@
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CssBaseline, Box, AppBar, Toolbar, Typography, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import RegisterPet from './pages/RegisterPet';
 import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
 import Cadastro from './pages/Cadastro/Cadastro';
-import LoginModal from './components/LoginModal/LoginModal'
 
 import './styles.css'; // Importa o CSS global
 import './App.css';
@@ -21,13 +19,6 @@ import Header from './components/Header/Header';
 
 
 function App() {
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const [isModalOpen, setModalOpen] = useState(true);
-
-  const toggleDrawer = () => {
-    setDrawerOpen(!isDrawerOpen);
-  };
-
   return (
     <Router>
       <CssBaseline />
@@ -44,8 +35,6 @@ function App() {
           <Route path="/cadastro-usuario" element={<Cadastro />} />
         </Routes>
       </Box>
-
-      <LoginModal open={isModalOpen} onClose={() => setModalOpen(!isModalOpen)} />
     </Router>
   );
 }
