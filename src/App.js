@@ -12,12 +12,15 @@ import Profile from './pages/Profile';
 import RegisterPet from './pages/RegisterPet';
 import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
+import Cadastro from './pages/Cadastro/Cadastro';
+import LoginModal from './components/LoginModal/LoginModal'
 
 import './styles.css'; // Importa o CSS global
 
 
 function App() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(true);
 
   const toggleDrawer = () => {
     setDrawerOpen(!isDrawerOpen);
@@ -37,10 +40,14 @@ function App() {
         </Toolbar>
       </AppBar>
       
+      {/* Menu Lateral */}
       <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
         <List>
           <ListItem button component="a" href="/">
             <ListItemText primary="Início" />
+          </ListItem>
+          <ListItem button component="a" href="/cadastro-usuario">
+            <ListItemText primary="Cadastrar Usuário" />
           </ListItem>
           <ListItem button component="a" href="/profile">
             <ListItemText primary="Perfil" />
@@ -57,6 +64,7 @@ function App() {
         </List>
       </Drawer>
 
+      {/* Rotas */}
       <Box component="main" sx={{ p: 3, mt: 8 }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -64,8 +72,11 @@ function App() {
           <Route path="/register-pet" element={<RegisterPet />} />
           <Route path="/search-pets" element={<SearchPets />} />
           <Route path="/success-stories" element={<SuccessStories />} />
+          <Route path="/cadastro-usuario" element={<Cadastro />} />
         </Routes>
       </Box>
+
+      <LoginModal open={isModalOpen} onClose={() => setModalOpen(!isModalOpen)} />
     </Router>
   );
 }
