@@ -6,7 +6,7 @@ export default function AppLogo(){
     return (
         <Button>
             <div className="App-logo">
-                <img src={dogHouse}/>
+                <img src={dogHouse} alt="App logo: A dog house with a figure of a pawn inside"/>
             </div>
         </Button>
     );
