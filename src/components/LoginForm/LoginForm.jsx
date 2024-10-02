@@ -1,27 +1,24 @@
-import react, { useContext, useState } from "react";
+import react, { useState } from "react";
 import { FormControl, Typography, Button, Stack, Link, Box } from "@mui/material";
 import LockIcon from '@mui/icons-material/Lock';
 import IconInput from "../IconInput/IconInput";
-import { userContext } from "../../UserProvider";
+import { UserClass } from "../../UserClass";
 
 export default function LoginForm() {
-
-    const {user, setUser} = useContext(userContext);
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
     
-    console.log(user);
-
     function Logar() {
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
         console.log(`login: ${login}, password: ${password}`);
-        if((login === user.name || login === user.email) && user.password === password){
+
+        if((login === user.name || login === user.email || login === user.phone) && user.password === password){
             user.logado = true;
-            setUser(user);
+            UserClass.SaveUser(user);
             console.log(user);
         } else {
             alert("Usuário ou senha incorretos, tente novamente!");
-            
-            console.log("credenciais incorretas");
         }
     }
 
@@ -33,6 +30,7 @@ export default function LoginForm() {
             <IconInput
                 label="Usuário"
                 placeholder="Email ou telefone"
+                required
                 onChange={e => { setLogin(e.target.value) }}
             />
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: "flex-end" }}>
@@ -41,6 +39,7 @@ export default function LoginForm() {
                     placeholder="Insira sua senha"
                     type="password"
                     icon={<LockIcon />}
+                    required
                     onChange={e => { setPassword(e.target.value) }}
                 />
                 <Link href="#" underline="hover" variant="subtitle2">Esqueci minha senha</Link>
