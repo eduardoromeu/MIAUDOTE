@@ -53,7 +53,7 @@ function SearchPets() {
         </Box>
       </Box>
       <Stack direction="row" spacing={2}>
-        <Button variant="contained" color="success">
+        <Button variant="contained">
           Confirmar
         </Button>
       </Stack>

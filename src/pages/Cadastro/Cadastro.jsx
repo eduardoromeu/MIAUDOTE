@@ -64,7 +64,7 @@ export default function Cadastro() {
 
             </Stack>
             <div>
-                <Button onClick={handleOpen}>Confirmar</Button>
+                <Button onClick={handleOpen}variant="contained">Confirmar</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}

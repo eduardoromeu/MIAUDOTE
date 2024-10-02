@@ -66,7 +66,7 @@ function RegisterPet() {
           onChange={(e) => setDescription(e.target.value)}
         />
         <div>
-          <Button onClick={handleOpen}>Cadastrar</Button>
+          <Button onClick={handleOpen}variant="contained">Cadastrar</Button>
           <Modal
             open={open}
             onClose={handleClose}
