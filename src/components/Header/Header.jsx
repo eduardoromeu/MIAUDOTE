@@ -15,7 +15,7 @@ export default function Header({titulo}) {
         <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
             <AppLogo />
-            <Typography variant='h5' sx={{fontFamily: 'monospace', marginBottom:'-15px'}}>{titulo}</Typography>
+            <Typography variant='h5' sx={{fontFamily: 'monospace', marginBottom:'-15px', marginLeft:'.25em'}}>{titulo}</Typography>
           </IconButton>
 
           <Button color="inherit">Login</Button>
