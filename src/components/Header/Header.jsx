@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import AppLogo from '../AppLogo/AppLogo';
 import { Button, Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
-export default function Header(props) {
+export default function Header({titulo}) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -16,7 +15,7 @@ export default function Header(props) {
         <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
           <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
             <AppLogo />
-            <Typography variant='h5' sx={{fontFamily: 'monospace'}}>{props.titulo}</Typography>
+            <Typography variant='h5' sx={{fontFamily: 'monospace', marginBottom:'-15px'}}>{titulo}</Typography>
           </IconButton>
 
           <Button color="inherit">Login</Button>
@@ -26,19 +25,19 @@ export default function Header(props) {
       {/* Menu Lateral */}
       <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
         <List>
-          <ListItem button component="a" href="/">
+          <ListItem  component="a" href="/">
             <ListItemText primary="Início" />
           </ListItem>
-          <ListItem button component="a" href="/profile">
+          <ListItem component="a" href="/profile">
             <ListItemText primary="Perfil" />
           </ListItem>
-          <ListItem button component="a" href="/register-pet">
+          <ListItem component="a" href="/register-pet">
             <ListItemText primary="Cadastrar Pet" />
           </ListItem>
-          <ListItem button component="a" href="/search-pets">
+          <ListItem component="a" href="/search-pets">
             <ListItemText primary="Buscar Pets" />
           </ListItem>
-          <ListItem button component="a" href="/success-stories">
+          <ListItem component="a" href="/success-stories">
             <ListItemText primary="Adoções Concluídas" />
           </ListItem>
         </List>

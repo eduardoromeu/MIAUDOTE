@@ -1,42 +1,27 @@
-import React from 'react';
-import { Container, Typography, Avatar, Grid, Card, CardContent, CardMedia, IconButton, Button, Box } from '@mui/material';
+import React, { useContext } from 'react';
+import { Container, Typography, Avatar, Grid2, Card, CardContent, CardMedia, IconButton, Button, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
+import { userContext } from '../userContext';
 
 function Profile() {
-  const user = {
-    name: "Thiago Frango",
-    email: "email@example.com",
-    avatar: "https://example.com/avatar.jpg", // Link da imagem do avatar
-    favorites: [
-      {
-        name: "Luna",
-        description: "Uma gata branca muito carinhosa.",
-        image: "https://example.com/luna.jpg",
-      },
-      {
-        name: "Rex",
-        description: "Cachorro labrador enérgico.",
-        image: "https://example.com/rex.jpg",
-      },
-    ],
-  };
+  const {user, setUser} = useContext(userContext);
 
   return (
     <Container>
       {/* Cabeçalho do Perfil */}
-      <Grid container spacing={3} alignItems="center">
-        <Grid item>
-          <Avatar alt={user.name} src={user.avatar} sx={{ width: 100, height: 100 }} />
-        </Grid>
-        <Grid item>
+      <Grid2 container spacing={3} alignItems="center">
+        <Grid2 item>
+          <Avatar alt={user.name} src={user.avatar} sx={{ width: 100, height: 100, p: 1.5, bgcolor: 'orange' }} />
+        </Grid2>
+        <Grid2 item>
           <Typography variant="h4">{user.name}</Typography>
           <Typography variant="body1">{user.email}</Typography>
           <Button startIcon={<EditIcon />} variant="outlined" sx={{ mt: 2 }}>
             Editar Perfil
           </Button>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
       {/* Seção de Pets Favoritos */}
       <Typography variant="h5" component="h2" sx={{ mt: 4, mb: 2, textAlign: 'center' }}>
@@ -44,9 +29,9 @@ function Profile() {
       </Typography>
 
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Grid container spacing={3} justifyContent="center">
+        <Grid2 container spacing={3} justifyContent="center">
           {user.favorites.map((pet, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid2 item xs={12} sm={6} md={4} key={index}>
               <Card>
                 <CardMedia
                   component="img"
@@ -66,9 +51,9 @@ function Profile() {
                   <FavoriteIcon color="error" />
                 </IconButton>
               </Card>
-            </Grid>
+            </Grid2>
           ))}
-        </Grid>
+        </Grid2>
       </Box>
     </Container>
   );
