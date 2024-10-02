@@ -13,6 +13,11 @@ export default function LoginForm() {
         console.log(user);
         console.log(`login: ${login}, password: ${password}`);
 
+        if(!user){
+            alert("Usuário ou senha incorretos, tente novamente!");
+            return;
+        }
+
         if((login === user.name || login === user.email || login === user.phone) && user.password === password){
             user.logado = true;
             UserClass.SaveUser(user);

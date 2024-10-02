@@ -7,8 +7,6 @@ import LoginModal from '../components/LoginModal/LoginModal'
 //Grid: Organiza os cards dos pets de forma responsiva.
 //Card: Cada pet para adoção é representado por um card.
 
-
-
 function Home() {
   // Exemplo de dados
   const pets = [
