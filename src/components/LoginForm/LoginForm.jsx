@@ -2,7 +2,7 @@ import react, { useContext, useState } from "react";
 import { FormControl, Typography, Button, Stack, Link, Box } from "@mui/material";
 import LockIcon from '@mui/icons-material/Lock';
 import IconInput from "../IconInput/IconInput";
-import { userContext } from "../../userContext";
+import { userContext } from "../../UserProvider";
 
 export default function LoginForm() {
 
@@ -17,7 +17,7 @@ export default function LoginForm() {
         if((login === user.name || login === user.email) && user.password === password){
             user.logado = true;
             setUser(user);
-            console.log("fazendo login");
+            console.log(user);
         } else {
             alert("Usuário ou senha incorretos, tente novamente!");
             

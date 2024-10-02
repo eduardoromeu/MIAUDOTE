@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Container, Typography, Avatar, Grid2, Card, CardContent, CardMedia, IconButton, Button, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
-import { userContext } from '../userContext';
+import { userContext } from '../UserProvider';
 
 function Profile() {
   const {user, setUser} = useContext(userContext);
@@ -11,10 +11,10 @@ function Profile() {
     <Container>
       {/* Cabeçalho do Perfil */}
       <Grid2 container spacing={3} alignItems="center">
-        <Grid2 item>
+        <Grid2>
           <Avatar alt={user.name} src={user.avatar} sx={{ width: 100, height: 100, p: 1.5, bgcolor: 'orange' }} />
         </Grid2>
-        <Grid2 item>
+        <Grid2>
           <Typography variant="h4">{user.name}</Typography>
           <Typography variant="body1">{user.email}</Typography>
           <Button startIcon={<EditIcon />} variant="outlined" sx={{ mt: 2 }}>
@@ -31,7 +31,7 @@ function Profile() {
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Grid2 container spacing={3} justifyContent="center">
           {user.favorites.map((pet, index) => (
-            <Grid2 item xs={12} sm={6} md={4} key={index}>
+            <Grid2 xs={12} sm={6} md={4} key={index}>
               <Card>
                 <CardMedia
                   component="img"
