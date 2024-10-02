@@ -4,7 +4,7 @@
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
 import React, { useContext, useState } from 'react';
-import { userContext } from './userContext';
+import { userContext } from './UserProvider';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
@@ -14,7 +14,6 @@ import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
 import Cadastro from './pages/Cadastro/Cadastro';
 import PawPrint from './images/White_paw_print.png'
-import LoggedUser from './LoggedUser';
 
 import './styles.css'; // Importa o CSS global
 import './App.css';
@@ -42,10 +41,10 @@ const userModel = {
 
 function App() {
   const [user, setUser] = useState(userModel);
-  
+
   return (
-    <userContext.Provider value={{user, setUser}}>
-      <Router>
+    <Router>
+        <userContext.Provider value={{user, setUser}}>
         <CssBaseline />
         <Header titulo="MIAUDOTE" />
 
@@ -60,8 +59,8 @@ function App() {
             <Route path="/cadastro-usuario" element={<Cadastro />} />
           </Routes>
         </Box>
-      </Router>
     </userContext.Provider>
+      </Router>
   );
 }
 

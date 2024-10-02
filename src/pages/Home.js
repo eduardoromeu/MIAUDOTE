@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Container, Grid2, Typography } from '@mui/material';
 import PetCard from '../components/PetCard/PetCard';
 import LoginModal from '../components/LoginModal/LoginModal'
-import { userContext } from '../userContext';
+import { userContext } from '../UserProvider';
 
 //Container: Centraliza o conteúdo.
 //Grid: Organiza os cards dos pets de forma responsiva.
