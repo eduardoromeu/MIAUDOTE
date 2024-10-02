@@ -19,7 +19,7 @@ function Home() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const [isModalOpen, setModalOpen] = useState(!user.logado ?? true);
+  const [isModalOpen, setModalOpen] = useState((user === null || user === undefined) ? true : !user.logado ?? true);
 
   return (
     <Container sx={{minHeight:"120vh"}}>

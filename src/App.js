@@ -3,8 +3,7 @@
 //Drawer: Um menu lateral que abre ao clicar no ícone de menu.
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
-import React, { useContext, useState } from 'react';
-import { userContext } from './UserClass';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
@@ -39,7 +38,6 @@ const userModel = {
     },
   ]
 };
-
 
 function App() {
 
