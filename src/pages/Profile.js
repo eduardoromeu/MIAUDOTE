@@ -5,6 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
+  if(!user) return <Typography variant="h4">Usuário não encontrado</Typography>;
 
   return (
     <Container>
