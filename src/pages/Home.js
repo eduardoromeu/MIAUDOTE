@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container, Grid2, Typography } from '@mui/material';
 import PetCard from '../components/PetCard/PetCard';
 import LoginModal from '../components/LoginModal/LoginModal'
+import { userContext } from '../userContext';
 
 //Container: Centraliza o conteúdo.
 //Grid: Organiza os cards dos pets de forma responsiva.
@@ -17,7 +18,9 @@ function Home() {
     { id: 3, name: 'Rufus', description: 'Cachorro dócil e amigável.' }
   ];
 
-  const [isModalOpen, setModalOpen] = useState(true);
+  const user = useContext(userContext);
+
+  const [isModalOpen, setModalOpen] = useState(!user.logado ?? true);
 
   return (
     <Container sx={{minHeight:"120vh"}}>

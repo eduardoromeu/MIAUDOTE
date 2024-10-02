@@ -3,13 +3,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
-export default function InputWithIcon({id, label, icon, placeholder, type}) {
+export default function InputWithIcon({id, label, icon, placeholder, type, onChange}) {
   return (
         <TextField
         id={id ?? "input-with-icon"}
         label={label ?? ""}
         placeholder={placeholder}
         type={type ?? "text"}
+        onChange={onChange}
         slotProps={{
           input: {
             startAdornment: (
