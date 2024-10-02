@@ -1,13 +1,11 @@
-import { Fragment } from "react";
-import FormPropsTextFields from "../../components/Formulario/formulario";
-import ColorButtons from "../../components/Button/button";
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import { Stack } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { UserClass } from "../../UserClass";
 
 const style = {
     position: 'absolute',
@@ -21,50 +19,73 @@ const style = {
     p: 4,
 };
 
+
+
 export default function Cadastro() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // Forms
+    const [nome, setNome] = React.useState("");
+    const [telefone, setTelefone] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [senha, setSenha] = React.useState("");
+
+    function Cadastrar() {
+        handleOpen();
+        const newUser = new UserClass(nome, telefone, email, senha, "", []);
+        
+        localStorage.setItem("user", JSON.stringify(newUser));
+    }
+
     return (
-        <Fragment>
-            <h1>CADASTRO DE USUÁRIO</h1>
+        <Container maxWidth="xs">
+            <Typography variant="h6" component="h2">CADASTRO DE USUÁRIO</Typography>
             <Stack
                 component="form"
                 sx={{ display: "flex", alignItems: "center", '& .MuiTextField-root': { m: 1, width: '25ch' } }}
-                noValidate
-                autoComplete="off"
+                onSubmit={Cadastrar}
             >
-
                 <TextField
-
                     id="outlined"
                     label="Nome"
                     defaultValue=""
-                /> <br></br>
-
-                <TextField
-                    id="outlined-password-input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                /> <br></br>
+                    required
+                    sx={{minWidth: '100%'}}
+                    onChange={e => { setNome(e.target.value) }}
+                />
 
                 <TextField
                     id="outlined-number"
-                    label="Numero"
-                    type="number"
-                /> <br></br>
+                    label="Telefone"
+                    type="tel"
+                    required
+                    sx={{minWidth: '100%'}}
+                    onChange={e => { setTelefone(e.target.value) }}
+                />
 
                 <TextField
                     id="outlined-email"
                     label="Email"
                     type="mail"
+                    required
+                    sx={{minWidth: '100%'}}
+                    onChange={e => { setEmail(e.target.value) }}
                 />
 
+                <TextField
+                    id="outlined-password-input"
+                    label="Senha"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    sx={{minWidth: '100%'}}
+                    onChange={e => { setSenha(e.target.value) }}
+                />
+                <Button variant="contained" type="submit" fullWidth>Confirmar</Button>
             </Stack>
             <div>
-                <Button onClick={handleOpen}variant="contained">Confirmar</Button>
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -81,6 +102,6 @@ export default function Cadastro() {
                     </Box>
                 </Modal>
             </div>
-        </Fragment>
+        </Container>
     );
 }

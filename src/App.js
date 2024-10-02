@@ -4,7 +4,7 @@
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
 import React, { useContext, useState } from 'react';
-import { userContext } from './UserProvider';
+import { userContext } from './UserClass';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
@@ -23,6 +23,7 @@ const userModel = {
   logado: false,
   password:"123",
   name: "Thiago Frango",
+  phone: "+55 11 99999-9999",
   email: "email@example.com",
   avatar: PawPrint, // Link da imagem do avatar
   favorites: [
@@ -39,12 +40,11 @@ const userModel = {
   ]
 };
 
+
 function App() {
-  const [user, setUser] = useState(userModel);
 
   return (
     <Router>
-        <userContext.Provider value={{user, setUser}}>
         <CssBaseline />
         <Header titulo="MIAUDOTE" />
 
@@ -59,7 +59,6 @@ function App() {
             <Route path="/cadastro-usuario" element={<Cadastro />} />
           </Routes>
         </Box>
-    </userContext.Provider>
       </Router>
   );
 }

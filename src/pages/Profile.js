@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Container, Typography, Avatar, Grid2, Card, CardContent, CardMedia, IconButton, Button, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
-import { userContext } from '../UserProvider';
 
 function Profile() {
-  const {user, setUser} = useContext(userContext);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Container>
