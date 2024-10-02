@@ -25,6 +25,15 @@ function SearchPets() {
       <Typography variant="h4" component="h1" gutterBottom>
         Buscar Pets por Região
       </Typography>
+      
+      {/* Adicionando o subtítulo e o texto de descrição */}
+      <Typography variant="h6" component="h2" gutterBottom>
+        Encontre o pet ideal perto de você
+      </Typography>
+      <Typography variant="body1" align="center" gutterBottom>
+        Use a barra de distância para ajustar o raio de busca e encontre pets disponíveis para adoção em sua região.
+      </Typography>
+
       <Box sx={{ width: 350 }}>
         <Slider
           marks={marks}
