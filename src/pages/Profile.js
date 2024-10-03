@@ -2,10 +2,13 @@ import React from 'react';
 import { Container, Typography, Avatar, Grid2, Card, CardContent, CardMedia, IconButton, Button, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditIcon from '@mui/icons-material/Edit';
+import Rufus from '../images/rufus.avif';
 
 function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
   if(!user) return <Typography variant="h4">Usuário não encontrado</Typography>;
+
+  user.favorites = [{name: "Rufus", description: "Cachorro Dócil", image: Rufus}];
 
   return (
     <Container>

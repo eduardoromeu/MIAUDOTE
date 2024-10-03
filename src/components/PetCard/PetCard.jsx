@@ -1,5 +1,6 @@
 import React from 'react';
-import { CardMedia, Button, Grid2, Card, CardActions, CardContent, Typography } from '@mui/material';
+import { CardMedia, Button, Box, Card, CardActions, CardContent, Typography } from '@mui/material';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import petPaws from '../../images/PetPaws.jpg';
 
 export default function PetCard({name, description, image}) {
@@ -20,7 +21,14 @@ export default function PetCard({name, description, image}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Adotar</Button>
+        {/* <Button size="small">
+          <Box sx={{display:"flex", maxWidth:"1.5em"}}>
+            <FavoriteBorderIcon sx={{width:'100%'}} />
+          </Box>
+        </Button> */}
+        <Button size="small">
+            Adotar
+        </Button>
         <Button size="small">Ver mais</Button>
       </CardActions>
     </Card>
