@@ -5,8 +5,8 @@ export class UserClass {
     this.email = email;
     this.password = password;
     this.avatar = avatar;
-    this.favorites = favorites;
     this.logado = false;
+    this.favorites = favorites;
     
     console.log("Criando usuário");
   }
