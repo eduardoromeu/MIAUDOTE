@@ -3,11 +3,13 @@
 //Drawer: Um menu lateral que abre ao clicar no ícone de menu.
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Header from './components/Header/Header';
+import NavBar from './components/NavBar/NavBar';
 import RegisterPet from './pages/RegisterPet';
 import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
@@ -16,7 +18,6 @@ import PawPrint from './images/White_paw_print.png'
 
 import './styles.css'; // Importa o CSS global
 import './App.css';
-import Header from './components/Header/Header';
 
 const userModel = {
   logado: false,
@@ -41,10 +42,21 @@ const userModel = {
 
 function App() {
 
+  const LogOut = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+      user.logado = false;
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+    window.location.href = "/";
+    return (<></>);
+  }
+
   return (
     <Router>
         <CssBaseline />
-        <Header titulo="MIAUDOTE" />
+        {/* <Header titulo="MIAUDOTE" /> */}
+        <NavBar />
 
         {/* Rotas */}
         <Box component="main" sx={{ p: 3, mt: 8 }}>
@@ -55,6 +67,7 @@ function App() {
             <Route path="/search-pets" element={<SearchPets />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/cadastro-usuario" element={<Cadastro />} />
+            <Route path="/logout" element={<LogOut />} />
           </Routes>
         </Box>
       </Router>
