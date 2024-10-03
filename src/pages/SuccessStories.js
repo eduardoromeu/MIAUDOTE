@@ -1,14 +1,19 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@mui/material';
+import Cao from '../images/cao.jpg'
+import Rex from '../images/rex.jpeg'
+import Luna from '../images/luna.jpeg'
+import Max from '../images/max.webp'
+import Bolt from '../images/bolt.jpg'
 
 function SuccessStories() {
   // Lista de histórias de adoção, cada uma com nome do pet, nome do adotante, localização e imagem
   const stories = [
-    { id: 1, petName: 'Fofinho', owner: 'João', location: 'São Paulo', image: 'https://via.placeholder.com/150' },
-    { id: 2, petName: 'Rex', owner: 'Maria', location: 'Rio de Janeiro', image: 'https://via.placeholder.com/150' },
-    { id: 3, petName: 'Luna', owner: 'Pedro', location: 'Belo Horizonte', image: 'https://via.placeholder.com/150' },
-    { id: 4, petName: 'Max', owner: 'Ana', location: 'Curitiba', image: 'https://via.placeholder.com/150' },
-    { id: 5, petName: 'Bolt', owner: 'Lucas', location: 'Porto Alegre', image: 'https://via.placeholder.com/150' },
+    { id: 1, petName: 'Fofinho', owner: 'João', location: 'São Paulo', image: Cao },
+    { id: 2, petName: 'Rex', owner: 'Maria', location: 'Rio de Janeiro', image: Rex },
+    { id: 3, petName: 'Luna', owner: 'Pedro', location: 'Belo Horizonte', image: Luna },
+    { id: 4, petName: 'Max', owner: 'Ana', location: 'Curitiba', image: Max },
+    { id: 5, petName: 'Bolt', owner: 'Lucas', location: 'Porto Alegre', image: Bolt },
   ];
 
   return (

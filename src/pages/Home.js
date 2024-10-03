@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Grid2, Typography } from '@mui/material';
 import PetCard from '../components/PetCard/PetCard';
 import LoginModal from '../components/LoginModal/LoginModal'
+import Rufus from '../images/rufus.avif'
 
 //Container: Centraliza o conteúdo.
 //Grid: Organiza os cards dos pets de forma responsiva.
@@ -12,7 +13,7 @@ function Home() {
   const pets = [
     { id: 1, name: 'Fofinho', description: 'Gato muito carinhoso!', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKy5Zq3nDNcIKQEtTvd1iJTSzxQk4UO53QrA&s' },
     { id: 2, name: 'Rex', description: 'Cachorro brincalhão e esperto.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTekrqEm8Pps8NR1x2kRA2N2WTL23Q9R9nVbw&s' },
-    { id: 3, name: 'Rufus', description: 'Cachorro dócil e amigável.' }
+    { id: 3, name: 'Rufus', description: 'Cachorro dócil e amigável.', image: Rufus}
   ];
 
   const user = JSON.parse(localStorage.getItem("user"));

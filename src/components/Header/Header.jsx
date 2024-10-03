@@ -9,6 +9,8 @@ export default function Header({titulo}) {
     setDrawerOpen(!isDrawerOpen);
   };
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -28,14 +30,20 @@ export default function Header({titulo}) {
           <ListItem  component="a" href="/">
             <ListItemText primary="Início" />
           </ListItem>
-          <ListItem component="a" href="/profile">
-            <ListItemText primary="Perfil" />
-          </ListItem>
-          <ListItem component="a" href="/register-pet">
-            <ListItemText primary="Cadastrar Pet" />
-          </ListItem>
+          {
+            user &&
+            <ListItem component="a" href="/profile">
+              <ListItemText primary="Perfil" />
+            </ListItem>
+          }
+          {
+            user &&
+            <ListItem component="a" href="/register-pet">
+              <ListItemText primary="Cadastrar Pet" />
+            </ListItem>
+          }
           <ListItem component="a" href="/search-pets">
-            <ListItemText primary="Buscar Pets" />
+            <ListItemText primary="Buscar Pets" /> 
           </ListItem>
           <ListItem component="a" href="/success-stories">
             <ListItemText primary="Adoções Concluídas" />
