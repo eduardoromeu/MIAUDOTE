@@ -14,6 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AppLogo from '../AppLogo/AppLogo';
 import { Stack } from '@mui/material';
 
+const pages = ['Cadastrar Pet', 'Buscar Pets', 'Adoções Concluídas'];
+const settings = ['Perfil', 'Sair'];
+
 const paginas = [
     {label:"Cadastrar Pet", href:"/register-pet"},
     {label:"Buscar Pets", href:"/search-pets"},
@@ -25,7 +28,7 @@ const configs = [
     {label:"Sair", href:"/logout"},
 ];
 
-export default function NavBar({isOpenModal, setOpenModal}) {
+export default function NavBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -141,7 +144,7 @@ export default function NavBar({isOpenModal, setOpenModal}) {
                             ) : (
                                 <Stack direction="Row">
                                     <Button color="inherit" component="a" href='/cadastro-usuario'>Cadastrar</Button>
-                                    <Button color="inherit" onClick={() => setOpenModal(!isOpenModal)}>Login</Button>
+                                    <Button color="inherit">Login</Button>
                                 </Stack>
                             )
                         }

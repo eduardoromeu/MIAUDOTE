@@ -3,22 +3,21 @@
 //Drawer: Um menu lateral que abre ao clicar no ícone de menu.
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import RegisterPet from './pages/RegisterPet';
 import SearchPets from './pages/SearchPets';
 import SuccessStories from './pages/SuccessStories';
 import Cadastro from './pages/Cadastro/Cadastro';
 import PawPrint from './images/White_paw_print.png'
-import { Container, Typography } from '@mui/material';
 
 import './styles.css'; // Importa o CSS global
 import './App.css';
-import { Login } from '@mui/icons-material';
 
 const userModel = {
   logado: false,
@@ -53,32 +52,22 @@ function App() {
     return (<></>);
   }
 
-  const user = JSON.parse(localStorage.getItem("user"));
-  const [isOpenModal, setOpenModal] = useState((user === null || user === undefined) ? true : !user.logado ?? true);
-
-
-
   return (
     <Router>
         <CssBaseline />
         {/* <Header titulo="MIAUDOTE" /> */}
-        <NavBar isOpenModal={isOpenModal} setOpenModal={setOpenModal} />
+        <NavBar />
 
         {/* Rotas */}
         <Box component="main" sx={{ p: 3, mt: 8 }}>
           <Routes>
-            <Route path="/" element={<Home isOpenModal={isOpenModal} setOpenModal={setOpenModal} />} />
+            <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/register-pet" element={<RegisterPet />} />
             <Route path="/search-pets" element={<SearchPets />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/cadastro-usuario" element={<Cadastro />} />
             <Route path="/logout" element={<LogOut />} />
-            <Route path="*" element={
-              <Container>
-                <Typography variant='h2'>404 - Página não encontrada</Typography>
-              </Container>
-          } />
           </Routes>
         </Box>
       </Router>
