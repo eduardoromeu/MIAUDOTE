@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Container, TextField, Button, Typography, Box, Modal, } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const style = {
   position: 'absolute',
@@ -12,6 +14,18 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
 
 
 function RegisterPet() {
@@ -66,7 +80,7 @@ function RegisterPet() {
           onChange={(e) => setDescription(e.target.value)}
         />
         <div>
-          <Button onClick={handleOpen}variant="contained">Cadastrar</Button>
+          <Button onClick={handleOpen} variant="contained">Cadastrar</Button>
           <Modal
             open={open}
             onClose={handleClose}
@@ -84,6 +98,21 @@ function RegisterPet() {
           </Modal>
         </div>
       </form>
+      <Button
+        sx={{alignItems: 'baseline', marginTop:'30px'} }
+        component="label"
+        role={undefined}
+        variant="contained"
+        tabIndex={-1}
+        startIcon={<CloudUploadIcon />}
+      >
+        Upload files
+        <VisuallyHiddenInput
+          type="file"
+          onChange={(event) => console.log(event.target.files)}
+          multiple
+        />
+      </Button>
     </Container>
   );
 }
