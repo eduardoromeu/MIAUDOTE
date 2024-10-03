@@ -106,7 +106,7 @@ function RegisterPet() {
         tabIndex={-1}
         startIcon={<CloudUploadIcon />}
       >
-        Upload files
+        Enviar Imagens
         <VisuallyHiddenInput
           type="file"
           onChange={(event) => console.log(event.target.files)}
