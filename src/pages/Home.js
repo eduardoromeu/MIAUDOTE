@@ -8,17 +8,13 @@ import Rufus from '../images/rufus.avif'
 //Grid: Organiza os cards dos pets de forma responsiva.
 //Card: Cada pet para adoção é representado por um card.
 
-function Home() {
+function Home({isOpenModal, setOpenModal}) {
   // Exemplo de dados
   const pets = [
     { id: 1, name: 'Fofinho', description: 'Gato muito carinhoso!', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKy5Zq3nDNcIKQEtTvd1iJTSzxQk4UO53QrA&s' },
     { id: 2, name: 'Rex', description: 'Cachorro brincalhão e esperto.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTekrqEm8Pps8NR1x2kRA2N2WTL23Q9R9nVbw&s' },
     { id: 3, name: 'Rufus', description: 'Cachorro dócil e amigável.', image: Rufus}
   ];
-
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  const [isModalOpen, setModalOpen] = useState((user === null || user === undefined) ? true : !user.logado ?? true);
 
   return (
     <Container sx={{minHeight:"120vh"}}>
@@ -31,7 +27,7 @@ function Home() {
         ))}
       </Grid2>
 
-      <LoginModal open={isModalOpen} onClose={() => setModalOpen(!isModalOpen)} />
+      <LoginModal open={isOpenModal} onClose={() => setOpenModal(!isOpenModal)} />
     </Container>
   );
 }
