@@ -1,6 +1,6 @@
 import dogHouse from '../../images/dog-house.png';
 
-export default function AppLogo(){
+export default function AppLogo(sx){
 
     return (
         <div className="App-logo">
