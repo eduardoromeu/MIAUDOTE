@@ -18,9 +18,9 @@ const pages = ['Cadastrar Pet', 'Buscar Pets', 'Adoções Concluídas'];
 const settings = ['Perfil', 'Sair'];
 
 const paginas = [
-    {label:"Cadastrar Pet", href:"/register-pet"},
-    {label:"Buscar Pets", href:"/search-pets"},
-    {label:"Adoções Concluídas", href:"/success-stories"},
+    {label:"Cadastrar Pet", href:"/register-pet", requireLogin:true},
+    {label:"Buscar Pets", href:"/search-pets", requireLogin:false},
+    {label:"Adoções Concluídas", href:"/success-stories", requireLogin:false},
 ];
 
 const configs = [
@@ -92,7 +92,8 @@ export default function NavBar() {
                             onClose={handleCloseNavMenu}
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
-                            {paginas.map(({label, href}, index) => (
+                            {paginas.map(({label, href, requireLogin}, index) => (
+                                (requireLogin && !(user && user.logado)) ? <></> :
                                 <MenuItem key={index} onClick={handleCloseNavMenu}>
                                     <Button
                                         sx={{ textAlign: 'center' }}
@@ -121,7 +122,8 @@ export default function NavBar() {
                     </IconButton>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {paginas.map(({label, href}, index) => (
+                        {paginas.map(({label, href, requireLogin}, index) => (
+                            (requireLogin && !(user && user.logado)) ? <></> :
                             <Button
                                 key={index}
                                 onClick={handleCloseNavMenu}
