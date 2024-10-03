@@ -21,6 +21,7 @@ export default function LoginForm() {
         if((login === user.name || login === user.email || login === user.phone) && user.password === password){
             user.logado = true;
             UserClass.SaveUser(user);
+            window.location.href = "/";
             console.log(user);
         } else {
             alert("Usuário ou senha incorretos, tente novamente!");

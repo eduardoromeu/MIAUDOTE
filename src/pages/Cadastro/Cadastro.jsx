@@ -24,7 +24,10 @@ const style = {
 export default function Cadastro() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        setOpen(false);
+        window.location.href = "/";
+    };
 
     // Forms
     const [nome, setNome] = React.useState("");
@@ -32,8 +35,9 @@ export default function Cadastro() {
     const [email, setEmail] = React.useState("");
     const [senha, setSenha] = React.useState("");
 
-    function Cadastrar() {
+    function Cadastrar(e) {
         handleOpen();
+        e.preventDefault();
         const newUser = new UserClass(nome, telefone, email, senha, "", []);
         
         localStorage.setItem("user", JSON.stringify(newUser));
@@ -99,6 +103,7 @@ export default function Cadastro() {
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             Seu cadastro foi realizado com sucesso!
                         </Typography>
+                        <Button variant='contained' onClick={handleClose} sx={{ mt: 2 }}>Fechar</Button>
                     </Box>
                 </Modal>
             </div>
