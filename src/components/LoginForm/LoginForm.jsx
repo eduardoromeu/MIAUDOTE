@@ -21,7 +21,7 @@ export default function LoginForm() {
         if((login === user.name || login === user.email || login === user.phone) && user.password === password){
             user.logado = true;
             UserClass.SaveUser(user);
-            window.location.href = "/";
+            window.location.href = "/MIAUDOTE/";
             console.log(user);
         } else {
             alert("Usuário ou senha incorretos, tente novamente!");
@@ -51,7 +51,7 @@ export default function LoginForm() {
                 <Link href="#" underline="hover" variant="subtitle2">Esqueci minha senha</Link>
             </Box>
             <Button variant="contained" onClick={Logar}>Continuar</Button>
-            <Button component="a" href="/cadastro-usuario" variant="outlined">Não sou cadastrado</Button>
+            <Button component="a" href="/MIAUDOTE/cadastro-usuario" variant="outlined">Não sou cadastrado</Button>
         </FormControl>
     )
 }

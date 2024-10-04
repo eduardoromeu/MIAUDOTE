@@ -4,7 +4,7 @@
 //Box: Um contêiner que contém as rotas principais e respeita o layout responsivo.
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, createBrowserRouter } from 'react-router-dom';
 import { CssBaseline, Box } from '@mui/material';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -49,17 +49,15 @@ function App() {
       user.logado = false;
       localStorage.setItem("user", JSON.stringify(user));
     }
-    window.location.href = "/";
+    window.location.href = "/MIAUDOTE/";
     return (<></>);
   }
 
   const user = JSON.parse(localStorage.getItem("user"));
   const [isOpenModal, setOpenModal] = useState((user === null || user === undefined) ? true : !user.logado ?? true);
 
-
-
   return (
-    <Router>
+    <Router basename='/'>
         <CssBaseline />
         {/* <Header titulo="MIAUDOTE" /> */}
         <NavBar isOpenModal={isOpenModal} setOpenModal={setOpenModal} />
@@ -67,14 +65,15 @@ function App() {
         {/* Rotas */}
         <Box component="main" sx={{ p: 3, mt: 8 }}>
           <Routes>
-            <Route path="/" element={<Home isOpenModal={isOpenModal} setOpenModal={setOpenModal} />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register-pet" element={<RegisterPet />} />
-            <Route path="/search-pets" element={<SearchPets />} />
-            <Route path="/success-stories" element={<SuccessStories />} />
-            <Route path="/cadastro-usuario" element={<Cadastro />} />
-            <Route path="/logout" element={<LogOut />} />
-            <Route path="*" element={
+            <Route path="/MIAUDOTE/" element={<Home isOpenModal={isOpenModal} setOpenModal={setOpenModal} />} />
+            <Route path="/MIAUDOTE/profile" element={<Profile />} />
+            <Route path="/MIAUDOTE/register-pet" element={<RegisterPet />} />
+            <Route path="/MIAUDOTE/search-pets" element={<SearchPets />} />
+            <Route path="/MIAUDOTE/success-stories" element={<SuccessStories />} />
+            <Route path="/MIAUDOTE/cadastro-usuario" element={<Cadastro />} />
+            <Route path="/MIAUDOTE/logout" element={<LogOut />} />
+            <Route path="*" element={<Home isOpenModal={isOpenModal} setOpenModal={setOpenModal} />} />
+            <Route path="/MIAUDOTE/*" element={
               <Container>
                 <Typography variant='h2'>404 - Página não encontrada</Typography>
               </Container>

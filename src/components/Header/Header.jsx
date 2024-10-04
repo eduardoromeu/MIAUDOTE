@@ -27,25 +27,25 @@ export default function Header({titulo}) {
       {/* Menu Lateral */}
       <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
         <List>
-          <ListItem  component="a" href="/">
+          <ListItem  component="a" href="/MIAUDOTE/">
             <ListItemText primary="Início" />
           </ListItem>
           {
             user &&
-            <ListItem component="a" href="/profile">
+            <ListItem component="a" href="/MIAUDOTE/profile">
               <ListItemText primary="Perfil" />
             </ListItem>
           }
           {
             user &&
-            <ListItem component="a" href="/register-pet">
+            <ListItem component="a" href="/MIAUDOTE/register-pet">
               <ListItemText primary="Cadastrar Pet" />
             </ListItem>
           }
-          <ListItem component="a" href="/search-pets">
+          <ListItem component="a" href="/MIAUDOTE/search-pets">
             <ListItemText primary="Buscar Pets" /> 
           </ListItem>
-          <ListItem component="a" href="/success-stories">
+          <ListItem component="a" href="/MIAUDOTE/success-stories">
             <ListItemText primary="Adoções Concluídas" />
           </ListItem>
         </List>

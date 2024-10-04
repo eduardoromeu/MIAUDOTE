@@ -26,7 +26,7 @@ export default function Cadastro() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        window.location.href = "/";
+        window.location.href = "/MIAUDOTE/";
     };
 
     // Forms
