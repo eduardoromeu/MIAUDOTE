@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/MIAUDOTE/static/css/main.dedf9844.css",
+    "main.js": "/MIAUDOTE/static/js/main.ee1612d7.js",
+    "static/js/453.def69332.chunk.js": "/MIAUDOTE/static/js/453.def69332.chunk.js",
+    "static/media/bolt.jpg": "/MIAUDOTE/static/media/bolt.cbcef101fc0c8a4d6cd0.jpg",
+    "static/media/PetPaws.jpg": "/MIAUDOTE/static/media/PetPaws.9c634f9e4f3021f5147c.jpg",
+    "static/media/cao.jpg": "/MIAUDOTE/static/media/cao.8a0ca40f42316fe4d940.jpg",
+    "static/media/rufus.avif": "/MIAUDOTE/static/media/rufus.d485b7be084ef8a8d37d.avif",
+    "static/media/max.webp": "/MIAUDOTE/static/media/max.d50bc90051f1e306e142.webp",
+    "static/media/dog-house.png": "/MIAUDOTE/static/media/dog-house.e0f74b76995db6093e44.png",
+    "index.html": "/MIAUDOTE/index.html",
+    "main.dedf9844.css.map": "/MIAUDOTE/static/css/main.dedf9844.css.map",
+    "main.ee1612d7.js.map": "/MIAUDOTE/static/js/main.ee1612d7.js.map",
+    "453.def69332.chunk.js.map": "/MIAUDOTE/static/js/453.def69332.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dedf9844.css",
+    "static/js/main.ee1612d7.js"
+  ]
+}
