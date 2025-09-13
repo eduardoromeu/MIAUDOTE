@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Typography, Box, Slider, Button, Stack } from '@mui/material';
+import { geoip_key } from '../api_keys';
 
-const MAX = 100;
+const MAX = 25;
 const MIN = 1;
 const marks = [
   {
@@ -14,13 +15,30 @@ const marks = [
   },
 ];
 
+const bbox_offset = 10;
+
 function SearchPets() {
   const [val, setVal] = React.useState(MIN); // Estado para armazenar o valor do slider
-
+  const [geoData, setGeoData] = React.useState(null);
+  
   // Função para atualizar o valor do slider
   const handleChange = (_, newValue) => {
     setVal(newValue); // Atualiza o estado com o novo valor do slider
   };
+  
+  React.useEffect(() => {
+    const url = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${geoip_key}`; 
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Erro na requisição");
+        }
+        return res.json();
+      })
+      .then((json) => {setGeoData(json); console.log(geoData)})
+      .catch((err) => console.error("Erro:", err));
+  }, []);
 
   return (
     <Container
@@ -68,6 +86,22 @@ function SearchPets() {
           }}
         />
       </Box>
+
+      <Box
+          component="iframe"
+          // src={`https://www.openstreetmap.org/export/embed.html?bbox=-52.23396%2C-24.89196%2C-52.19632%2C-24.87882&amp;layer=mapnik`}
+          src={
+            geoData && geoData.latitude ? `https://www.openstreetmap.org/export/embed.html?bbox=-${geoData.latitude}%2C${geoData.longitude}%2C${geoData.latitude+0.2}%2C${geoData.longitude+0.2}&amp;layer=mapnik`
+            : `https://www.openstreetmap.org/export/embed.html?bbox=-52.23396%2C-24.89196%2C-52.19632%2C-24.87882&amp;layer=mapnik`
+          }
+          alt="Mapa"
+          loading="lazy"
+          sx={{
+            width: 700,
+            height: 200,
+            objectFit: 'cover',
+          }}
+        />
 
       <Box sx={{ width: 350 }}>
         <Slider
