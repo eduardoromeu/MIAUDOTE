@@ -43,11 +43,13 @@ function SearchPets() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
+    console.log("FORM SUBMIT");
   };
 
   return (
     <Container
+      component="form"
+      onSubmit={handleSearch}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -127,10 +129,7 @@ function SearchPets() {
         </Box>
       </Box>
 
-      <Stack direction="row" spacing={2} sx={{ width: '100%', justifyContent: 'center' }}>
-        {/* Botão para confirmar a busca */}
-        <Button variant="contained" sx={{ minWidth: 120, fontSize: { xs: 14, sm: 16 } }}>BUSCAR</Button>
-      </Stack>
+      <Button type="submit" variant="contained" sx={{ minWidth: 120, fontSize: { xs: 14, sm: 16 } }}>BUSCAR</Button>
     </Container>
   );
 }
