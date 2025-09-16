@@ -1,54 +1,76 @@
 import React, { useState } from 'react';
-import AppLogo from '../AppLogo/AppLogo';
-import { Button, Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Box, AppBar, Toolbar, Typography, Drawer, List, ListItem, ListItemButton, ListItemText, IconButton, Divider } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu'; 
 
-export default function Header({titulo}) {
+export default function Header({ titulo }) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setDrawerOpen(!isDrawerOpen);
+  const toggleDrawer = (open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setDrawerOpen(open);
   };
-
-  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
-            <AppLogo />
-            <Typography variant='h5' sx={{fontFamily: 'monospace', marginBottom:'-15px', marginLeft:'.25em'}}>{titulo}</Typography>
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={toggleDrawer(true)}
+          >
+            <MenuIcon />
           </IconButton>
-
-          <Button color="inherit">Login</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            {titulo || "MIAUDOTE"}
+          </Typography>
         </Toolbar>
       </AppBar>
 
-      {/* Menu Lateral */}
-      <Drawer open={isDrawerOpen} onClose={toggleDrawer}>
-        <List>
-          <ListItem  component="a" href="/MIAUDOTE/">
-            <ListItemText primary="Início" />
-          </ListItem>
-          {
-            user &&
-            <ListItem component="a" href="/MIAUDOTE/profile">
-              <ListItemText primary="Perfil" />
+      <Drawer
+        anchor="left"
+        open={isDrawerOpen}
+        onClose={toggleDrawer(false)}
+      >
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+
+          <Toolbar />
+          <Divider />
+          <List>
+
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/MIAUDOTE/">
+                <ListItemText primary="-- TESTE INÍCIO --" />
+              </ListItemButton>
             </ListItem>
-          }
-          {
-            user &&
-            <ListItem component="a" href="/MIAUDOTE/register-pet">
-              <ListItemText primary="Cadastrar Pet" />
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/MIAUDOTE/profile">
+                <ListItemText primary="-- TESTE PERFIL --" />
+              </ListItemButton>
             </ListItem>
-          }
-          <ListItem component="a" href="/MIAUDOTE/search-pets">
-            <ListItemText primary="Buscar Pets" /> 
-          </ListItem>
-          <ListItem component="a" href="/MIAUDOTE/success-stories">
-            <ListItemText primary="Adoções Concluídas" />
-          </ListItem>
-        </List>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/MIAUDOTE/register-pet">
+                <ListItemText primary="-- TESTE CADASTRAR PET --" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton component={Link} to="/MIAUDOTE/search-pets">
+                <ListItemText primary="-- TESTE BUSCAR PETS --" />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Box>
       </Drawer>
     </Box>
   );
