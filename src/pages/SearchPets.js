@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Typography, Box, Slider, Button, Stack } from '@mui/material';
-import { geoip_key } from '../api_keys';
 
 // const MIN = 0.002;
 // const MAX = 0.500;
@@ -26,7 +25,7 @@ function SearchPets() {
   };
   
   React.useEffect(() => {
-    const url = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${geoip_key}`; 
+    const url = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=109efc60022549648896ead43bb28bdf`; 
 
     fetch(url)
       .then((res) => {
