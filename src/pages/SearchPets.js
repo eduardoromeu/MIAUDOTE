@@ -2,28 +2,27 @@ import React from 'react';
 import { Container, Typography, Box, Slider, Button, Stack } from '@mui/material';
 import { geoip_key } from '../api_keys';
 
-const MAX = 25;
-const MIN = 1;
+// const MIN = 0.002;
+// const MAX = 0.500;
+// const STEP = 0.0005;
+const minZoom = 5;
+const maxZoom = 500;
+const zoomStep = 5;
 const marks = [
   {
-    value: MIN,
-    label: 'KM',
+    value: 250,
+    label: "ZOOM (KM)"
   },
-  {
-    value: MAX,
-    label: '',
-  },
+
 ];
 
-const bbox_offset = 10;
-
 function SearchPets() {
-  const [val, setVal] = React.useState(MIN); // Estado para armazenar o valor do slider
+  const [zoom, setZoom] = React.useState(minZoom); // Estado para armazenar o valor do slider
   const [geoData, setGeoData] = React.useState(null);
   
   // Função para atualizar o valor do slider
   const handleChange = (_, newValue) => {
-    setVal(newValue); // Atualiza o estado com o novo valor do slider
+    setZoom(newValue / 10000); // Atualiza o estado com o novo valor do slider
   };
   
   React.useEffect(() => {
@@ -34,105 +33,103 @@ function SearchPets() {
         if (!res.ok) {
           throw new Error("Erro na requisição");
         }
+        console.log(url);
+        console.log(res);
         return res.json();
       })
-      .then((json) => {setGeoData(json); console.log(geoData)})
+      .then((json) => {setGeoData(json); console.log(json)})
       .catch((err) => console.error("Erro:", err));
   }, []);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+  };
 
   return (
     <Container
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         minHeight: '100vh',
-        gap: 3,
+        gap: { xs: 2, sm: 3 },
+        px: { xs: 1, sm: 2 },
+        width: '100%',
+        boxSizing: 'border-box',
       }}
     >
       <Typography variant="h4" component="h1" gutterBottom>
-        Buscar Pets por Região
+        Buscar Pets
       </Typography>
 
       <Typography variant="h6" component="h2" gutterBottom>
         Encontre o pet ideal perto de você
       </Typography>
+        
+      {/* Embed do mapa com busca pelo IP */}
+      <Box
+        component="iframe"
+        src={
+          geoData && geoData.location.latitude && geoData.location.longitude ? 
+          `https://www.openstreetmap.org/export/embed.html?bbox=${parseFloat(geoData.location.longitude)-zoom}%2C${parseFloat(geoData.location.latitude)-zoom}%2C${parseFloat(geoData.location.longitude)+zoom}%2C${parseFloat(geoData.location.latitude)+zoom}&amp;layer=mapnik`
+          :`https://www.openstreetmap.org/export/embed.html?bbox=${-52.23396-zoom}%2C${-24.89196-zoom}%2C${-52.23396+zoom}%2C${-24.89196+zoom}&amp;layer=mapnik`
+        }
+        alt="Mapa"
+        loading="lazy"
+        sx={{
+          width: '100%',
+          maxWidth: { xs: '100%', sm: 700 },
+          height: { xs: 180, sm: 250 },
+          objectFit: 'cover',
+          borderRadius: 2,
+        }}
+      />
+
       <Typography variant="body1" align="center" gutterBottom>
         Use a barra de distância para ajustar o raio de busca e encontre pets disponíveis para adoção em sua região
       </Typography>
 
-      {/* Contêiner com overflow escondido para aplicar zoom */}
-      <Box 
-        sx={{
-          width: 350,
-          height: 200,
-          overflow: 'hidden', // Garante que o zoom não afete o tamanho visível da imagem
-          mb: 2,
-          borderRadius: 2,
-          border: '2px solid #ccc',
-        }}
-      >
-        <Box
-          component="img"
-          src="https://acontecendoaqui.com.br/wp-content/uploads/2015/11/maps.jpg"
-          alt="Mapa ilustrativo"
-          sx={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: `scale(${1 + val / 320})`, // Aumenta a escala da imagem conforme o valor do slider
-            transition: 'transform 0.3s ease-in-out', // Transição suave para o zoom
-          }}
-        />
-      </Box>
-
-      <Box
-          component="iframe"
-          // src={`https://www.openstreetmap.org/export/embed.html?bbox=-52.23396%2C-24.89196%2C-52.19632%2C-24.87882&amp;layer=mapnik`}
-          src={
-            geoData && geoData.latitude ? `https://www.openstreetmap.org/export/embed.html?bbox=-${geoData.latitude}%2C${geoData.longitude}%2C${geoData.latitude+0.2}%2C${geoData.longitude+0.2}&amp;layer=mapnik`
-            : `https://www.openstreetmap.org/export/embed.html?bbox=-52.23396%2C-24.89196%2C-52.19632%2C-24.87882&amp;layer=mapnik`
-          }
-          alt="Mapa"
-          loading="lazy"
-          sx={{
-            width: 700,
-            height: 200,
-            objectFit: 'cover',
-          }}
-        />
-
-      <Box sx={{ width: 350 }}>
+      <Box sx={{ width: { xs: '100%', sm: 350 } }}>
         <Slider
           marks={marks}
-          step={10}
-          value={val}
-          valueLabelDisplay="auto"
-          min={MIN}
-          max={MAX}
+          step={zoomStep}
+          value={zoom * 10000}
+          valueLabelDisplay="off"
+          min={minZoom}
+          max={maxZoom}
           onChange={handleChange}
+          sx={{
+            mt: 2,
+            mb: 1,
+            '& .MuiSlider-markLabel': {
+              fontSize: { xs: 10, sm: 12 },
+            },
+          }}
         />
+
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography
             variant="body2"
-            onClick={() => setVal(MIN)}
-            sx={{ cursor: 'pointer' }}
+            onClick={() => setZoom(minZoom)}
+            sx={{ cursor: 'pointer', fontSize: { xs: 12, sm: 14 } }}
           >
-            {MIN}
+            {minZoom}
           </Typography>
           <Typography
             variant="body2"
-            onClick={() => setVal(MAX)}
-            sx={{ cursor: 'pointer' }}
+            onClick={() => setZoom(maxZoom)}
+            sx={{ cursor: 'pointer', fontSize: { xs: 12, sm: 14 } }}
           >
-            {MAX}
+            {maxZoom}
           </Typography>
         </Box>
       </Box>
 
-      <Stack direction="row" spacing={2}>
-        <Button variant="contained">Confirmar</Button> {/* Botão para confirmar */}
+      <Stack direction="row" spacing={2} sx={{ width: '100%', justifyContent: 'center' }}>
+        {/* Botão para confirmar a busca */}
+        <Button variant="contained" sx={{ minWidth: 120, fontSize: { xs: 14, sm: 16 } }}>BUSCAR</Button>
       </Stack>
     </Container>
   );
