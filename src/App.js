@@ -20,6 +20,8 @@ import './styles.css'; // Importa o CSS global
 import './App.css';
 import { Login } from '@mui/icons-material';
 
+import PetDetails from './pages/PetDetails';
+
 const userModel = {
   logado: false,
   password:"123",
@@ -66,6 +68,7 @@ function App() {
         <Box component="main" sx={{ p: 3, mt: 8 }}>
           <Routes>
             <Route path="/MIAUDOTE/" element={<Home isOpenModal={isOpenModal} setOpenModal={setOpenModal} />} />
+            <Route path="/MIAUDOTE/pet/:petId" element={<PetDetails />} />
             <Route path="/MIAUDOTE/profile" element={<Profile />} />
             <Route path="/MIAUDOTE/register-pet" element={<RegisterPet />} />
             <Route path="/MIAUDOTE/search-pets" element={<SearchPets />} />
