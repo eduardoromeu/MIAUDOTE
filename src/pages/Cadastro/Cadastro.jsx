@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { UserClass } from "../../UserClass";
+import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -22,11 +23,13 @@ const style = {
 
 
 export default function Cadastro() {
+    const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        window.location.href = "/MIAUDOTE/";
+        // window.location.href = "/MIAUDOTE/";
+        navigate("/MIAUDOTE/");
     };
 
     // Forms
